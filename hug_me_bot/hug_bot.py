@@ -1,4 +1,5 @@
 from config import TOKEN
+from phrases import HUG_PHRASES, PHRASES_LENGTH
 
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, 
@@ -8,10 +9,6 @@ import logging, re, random
 HELP_STRING = ("""
 useful helpful text
 """)
-
-HUG_PHRASES = [" a warm hug", 
-" a good friendly hug"]
-PHRASES_LENGTH = len(HUG_PHRASES)-1
 
 def start(bot, update):
     update.message.reply_text("Hi!")
@@ -35,12 +32,17 @@ def inlinequery(bot, update):
 
     pre_phrase = "I'm sending "
     phrase = phrase_generator()
-    hug_emote = " (>^-^)>"
+    username = escape_markdown(query)
+    hug_emote = "(>^-^)>"
+
+    if '@' not in username:
+        username = "@{}".format(username)
+
     typed_name = InputTextMessageContent(str(query))
     results.append(InlineQueryResultArticle(id=1, 
-        title="I will hug {}".format(str(query)), 
+        title="I will hug {} {}".format(str(query), hug_emote), 
         input_message_content=InputTextMessageContent(
-        pre_phrase + escape_markdown(query) + phrase + hug_emote,
+        pre_phrase + username + phrase + hug_emote,
         parse_mode=ParseMode.MARKDOWN)))
     
     update.inline_query.answer(results)
