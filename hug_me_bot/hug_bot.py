@@ -1,4 +1,4 @@
-from config import TOKEN
+from config import TOKEN, PORT, APPNAME
 from phrases import HUG_PHRASES, PHRASES_LENGTH
 
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
@@ -18,7 +18,7 @@ Star me on github! https://github.com/aBARICHELLO/Hug_Me_Bot
 """).strip('\n')
 
 def start(bot, update):
-    update.message.reply_text("Hi!")
+    update.message.reply_text(HELP_STRING)
 
 def help(bot, update):
     update.message.reply_text(HELP_STRING)
