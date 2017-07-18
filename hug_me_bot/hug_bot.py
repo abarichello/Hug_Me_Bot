@@ -34,18 +34,26 @@ def inlinequery(bot, update):
     pre_phrase = "@{} sends ".format(sender_username)
     phrase = phrase_generator()
     typed_username = escape_markdown(query)
-    hug_emote = "(>^-^)>"
+    hug_emote = '(>^-^)>'
 
     if '@' not in typed_username:
         typed_username = "@{}".format(typed_username)
 
     typed_name = InputTextMessageContent(str(query))
+
     results.append(InlineQueryResultArticle(id=1, 
-        title="I will hug {} {}".format(str(query), hug_emote), 
+        title="{} I will hug {}".format(hug_emote, str(query)), 
         input_message_content=InputTextMessageContent(
         pre_phrase + typed_username + phrase + hug_emote,
         parse_mode=ParseMode.MARKDOWN)))
     
+    hug_emote = 'ʕ◉ᴥ◉ʔ'
+    results.append(InlineQueryResultArticle(id=2, 
+        title="{} I will give {} a hug!".format(hug_emote, str(query)), 
+        input_message_content=InputTextMessageContent(
+        pre_phrase + typed_username + phrase + hug_emote,
+        parse_mode=ParseMode.MARKDOWN)))
+
     update.inline_query.answer(results)
 
 def error_callback(bot, update, error):
