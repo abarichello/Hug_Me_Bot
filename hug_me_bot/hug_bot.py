@@ -30,19 +30,20 @@ def inlinequery(bot, update):
     query = update.inline_query.query
     results = list()
 
-    pre_phrase = "I'm sending "
+    sender_username = update.inline_query.from_user.username
+    pre_phrase = "@{} sends ".format(sender_username)
     phrase = phrase_generator()
-    username = escape_markdown(query)
+    typed_username = escape_markdown(query)
     hug_emote = "(>^-^)>"
 
-    if '@' not in username:
-        username = "@{}".format(username)
+    if '@' not in typed_username:
+        typed_username = "@{}".format(typed_username)
 
     typed_name = InputTextMessageContent(str(query))
     results.append(InlineQueryResultArticle(id=1, 
         title="I will hug {} {}".format(str(query), hug_emote), 
         input_message_content=InputTextMessageContent(
-        pre_phrase + username + phrase + hug_emote,
+        pre_phrase + typed_username + phrase + hug_emote,
         parse_mode=ParseMode.MARKDOWN)))
     
     update.inline_query.answer(results)
