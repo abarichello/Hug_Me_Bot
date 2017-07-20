@@ -11,3 +11,6 @@ Send virtual hugs through Telegram!
 &nbsp;&nbsp;&nbsp;&nbsp;Since i'm  using Heroku's free plan the bot may take some time to wake up after being inactive for 30mins.
 * __I need help!__  
 &nbsp;&nbsp;&nbsp;&nbsp;Send me a message on Telegram [here!](https://t.me/aBARICHELLO)
+
+## Contributing
+&nbsp;&nbsp;&nbsp;&nbsp;Feel free to send me sugestions to new phrases or code enhancements :)
