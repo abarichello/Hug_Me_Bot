@@ -12,7 +12,7 @@ HUG_PHRASES = [" a warm hug ",
 " a long hug ",
 " a 20s long hug ",
 " a virtual hug ",
-" a hug to remember"
+" a hug to remember "
 ]
 
 PHRASES_LENGTH = len(HUG_PHRASES)-1
