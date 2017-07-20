@@ -65,6 +65,8 @@ def inlinequery(bot, update):
 		pre_phrase + typed_username + phrase + hug_emote,
 		parse_mode=ParseMode.MARKDOWN)))
 
+	if len(typed_username) > 5:
+		add_stats(sender_username, typed_username)
 	update.inline_query.answer(results)
 
 def formatTypedUsername(typed_username):
