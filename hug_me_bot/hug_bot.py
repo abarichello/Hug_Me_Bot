@@ -1,4 +1,4 @@
-from config import TOKEN, PORT, APPNAME, DEBUG_CHANNEL, MONGODB_URI
+﻿from config import TOKEN, PORT, APPNAME, DEBUG_CHANNEL, MONGODB_URI
 from phrases import HUG_PHRASES, PHRASES_LENGTH
 
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
@@ -9,7 +9,7 @@ import logging, re, random, pymongo
 
 HELP_STRING = ("""
 Hello! I am an inline bot!
-To use me type @Hug_Me_Bot in any chat,
+To use me type @Hug_Me_Bot in any chat(and give me some time to wake up),
 after that type the username of the person that needs a hug
 and finally select the desired emote.
 Free hugs guaranteed.
